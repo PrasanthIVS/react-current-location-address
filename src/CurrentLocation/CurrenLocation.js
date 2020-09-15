@@ -65,7 +65,7 @@ const getLocation = (onFetchAddresses, handleError) => {
   }
 }
 
-const ReverseGeocode = (props) => {
+const CurrentLocation = (props) => {
   const { onFetchAddresses, onError, children } = props
   const [loading, setLoading] = useState(false)
 
@@ -83,10 +83,10 @@ const ReverseGeocode = (props) => {
   })
 }
 
-ReverseGeocode.propTypes = {
+CurrentLocation.propTypes = {
   onFetchAddresses: func,
   onError: func,
   children: func,
 }
 
-export default ReverseGeocode
+export default CurrentLocation
