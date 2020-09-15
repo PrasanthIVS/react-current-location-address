@@ -1,7 +1,14 @@
 {
   "name": "react-current-location-address",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "A utility to get the current location address using Geolocation API & Reverse Geocoding.",
+  "homepage": "https://github.com/PrasanthIVS/react-current-location-address",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PrasanthIVS/react-current-location-address"
+  },
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -32,7 +39,8 @@
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
-    "@babel/preset-react": "^7.10.4"
+    "@babel/preset-react": "^7.10.4",
+    "prop-types": "^15.7.2"
   },
   "babel": {
     "presets": [
