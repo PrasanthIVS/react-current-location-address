@@ -28,7 +28,7 @@ Place the link in the index.html file to load the library
 |Name|Type|Required|Default Value|Description|
 |:---:|:---:|:---:|:---:|---|
 |onFetchAddresses|function|No|() => {}|Function that will be called on successful fetch of address results from the Maps API|
-|onError|function|No|() => {}|Error handler that will be called when Geo Location or Maps API responds with an error (returns an error string. Please find more information here)|
+|onError|function|No|() => {}|Error handler that will be called when Geo Location or Maps API responds with an error (returns an error string. Please find more information [here](https://github.com/PrasanthIVS/react-current-location-address/blob/master/README.md#onerror))|
 |children|function|Yes|() => null|Render function to specify for the rendering `example: () => <button />`|
 
 ## Example
