@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/react-current-location-address?color=brightgreen&label=npm)](https://www.npmjs.com/package/react-current-location-address)
+
 # React Current Location Address
 A React utility to get the user's current location address using Geo Location API & Google's reverse geocoding.
 
