@@ -6,7 +6,7 @@ A common use case would be to auto populate the user's location address in the s
 ```
 The package uses [HTML Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) behind the scenes which is only available in [secure contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) (HTTPS). Geolocation is most accurate for devices with GPS, like smartphones.
 
-Reverse Geocoding or Address lookup is a process of converting the location (geographic coordinates) into a human-readable address. More information can be found [here](https://en.wikipedia.org/wiki/Reverse_geocoding).
+[Reverse Geocoding](https://developers.google.com/maps/documentation/geocoding/overview#ReverseGeocoding) or Address lookup is a process of converting the location (geographic coordinates) into a human-readable address. More information can be found [here](https://en.wikipedia.org/wiki/Reverse_geocoding).
 
 ## Installation
 You can use npm or yarn.
