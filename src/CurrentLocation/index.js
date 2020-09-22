@@ -1,3 +1,3 @@
-import CurrentLocation from './CurrenLocation'
+import CurrentLocation from './CurrentLocation'
 
 export default CurrentLocation
