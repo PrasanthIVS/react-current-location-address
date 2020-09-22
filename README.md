@@ -33,7 +33,7 @@ Place the link in the index.html file to load the library
 ## Props
 |Name|Type|Required|Default Value|Description|
 |:---:|:---:|:---:|:---:|---|
-|onFetchAddresses|function|false|() => {}|Function that will be called on successful fetch of address results from the Maps API|
+|onFetchAddress|function|false|() => {}|Function that will be called on successful fetch of address results from the Maps API|
 |onError|function|false|() => {}|Error handler that will be called when Geo Location or Maps API responds with an error (passes an error string. Please find more information on the error types [here](https://github.com/PrasanthIVS/react-current-location-address/blob/master/README.md#onerror))|
 |children|function|true|() => null|Render function to specify for the rendering `example: () => <button />`|
 
