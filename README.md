@@ -1,9 +1,8 @@
 # React Current Location Address
 A React utility to get the user's current location address using Geo Location API & Google's reverse geocoding.
 
-```
-A common use case would be to auto populate the user's location address in the signup forms and bot apps.
-```
+> A common use case would be to auto populate the user's location address in the signup forms and bot apps.
+
 The package uses [HTML Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) behind the scenes which is only available in [secure contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) (HTTPS). Geolocation is most accurate for devices with GPS, like smartphones.
 
 [Reverse Geocoding](https://developers.google.com/maps/documentation/geocoding/overview#ReverseGeocoding) or Address lookup is a process of converting the location (geographic coordinates) into a human-readable address. More information can be found [here](https://en.wikipedia.org/wiki/Reverse_geocoding).
