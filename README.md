@@ -57,7 +57,8 @@ import CurrentLocation from 'react-current-location-address'
 #### onFetchAddress
 A function that will be called with the results once they are fetched from the Google Maps API.
 Called with an empty array in case of zero results.
-For more information on how to consume the results, please refer to the [docs](https://developers.google.com/maps/documentation/geocoding/overview#results).
+Results will be an array of addresses.
+For detailed information on the results structure, please refer to the [docs](https://developers.google.com/maps/documentation/geocoding/overview#results).
 #### onError
 A function that will be called with one of the below error types when there is an error from the Geo Location or Maps API.
 The second value is the error status code from the Maps API. Different status codes can be found [here](https://developers.google.com/maps/documentation/geocoding/overview#StatusCodes).
