@@ -21,7 +21,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var geocodeLatLng = function geocodeLatLng(lat, lng, onFetchAddresses, handleError) {
+var geocodeLatLng = function geocodeLatLng(lat, lng, onFetchAddress, handleError) {
   var googleMaps = window.google && window.google.maps;
 
   if (googleMaps) {
@@ -34,29 +34,30 @@ var geocodeLatLng = function geocodeLatLng(lat, lng, onFetchAddresses, handleErr
     }, function (results, status) {
       if (status === 'OK') {
         if (results[0]) {
-          onFetchAddresses(results);
+          onFetchAddress(results);
           handleError('');
         } else {
-          handleError('noResultsFound');
-          onFetchAddresses([]);
+          handleError('noResultsFound', 'ZERO_RESULTS');
+          onFetchAddress([]);
         }
       } else {
-        handleError('googleAddressError');
+        var errorType = status === 'ZERO_RESULTS' ? 'noResultsFound' : 'geocodeError';
+        handleError(errorType, status);
       }
     });
   } else {
-    handleError('googleAddressError');
+    handleError('mapsUnavailable');
   }
 };
 
-var getResults = function getResults(position, onFetchAddresses, handleError) {
+var getResults = function getResults(position, onFetchAddress, handleError) {
   var _position$coords = position.coords,
       coords = _position$coords === void 0 ? {} : _position$coords;
   var lat = coords.latitude,
       lng = coords.longitude;
 
   if (lat && lng) {
-    geocodeLatLng(lat, lng, onFetchAddresses, handleError);
+    geocodeLatLng(lat, lng, onFetchAddress, handleError);
   } else {
     handleError('coordsUnavailable');
   }
@@ -78,10 +79,10 @@ var getGeoLocationError = function getGeoLocationError(error, handleError) {
   }
 };
 
-var getLocation = function getLocation(onFetchAddresses, handleError) {
+var getLocation = function getLocation(onFetchAddress, handleError) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
-      return getResults(position, onFetchAddresses, handleError);
+      return getResults(position, onFetchAddress, handleError);
     }, function (error) {
       return getGeoLocationError(error, handleError);
     });
@@ -91,9 +92,14 @@ var getLocation = function getLocation(onFetchAddresses, handleError) {
 };
 
 var CurrentLocation = function CurrentLocation(props) {
-  var onFetchAddresses = props.onFetchAddresses,
-      onError = props.onError,
-      children = props.children;
+  var _props$onFetchAddress = props.onFetchAddress,
+      onFetchAddress = _props$onFetchAddress === void 0 ? function () {} : _props$onFetchAddress,
+      _props$onError = props.onError,
+      onError = _props$onError === void 0 ? function () {} : _props$onError,
+      _props$children = props.children,
+      children = _props$children === void 0 ? function () {
+    return null;
+  } : _props$children;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -101,21 +107,22 @@ var CurrentLocation = function CurrentLocation(props) {
       setLoading = _useState2[1];
 
   var handleError = function handleError(type) {
+    var status = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
     setLoading(false);
-    type && onError(type);
+    type && onError(type, status);
   };
 
   return children({
     getCurrentLocation: function getCurrentLocation() {
       setLoading(true);
-      getLocation(onFetchAddresses, handleError);
+      getLocation(onFetchAddress, handleError);
     },
     loading: loading
   });
 };
 
 CurrentLocation.propTypes = {
-  onFetchAddresses: _propTypes.func,
+  onFetchAddress: _propTypes.func,
   onError: _propTypes.func,
   children: _propTypes.func
 };

@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _CurrenLocation = _interopRequireDefault(require("./CurrenLocation"));
+var _CurrentLocation = _interopRequireDefault(require("./CurrentLocation"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _default = _CurrenLocation.default;
+var _default = _CurrentLocation.default;
 exports.default = _default;
